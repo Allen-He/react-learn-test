@@ -1,0 +1,15 @@
+.three-layout {
+  display: flex;
+}
+.three-layout .left {
+  order: 1;
+  flex: 0 0 auto;
+}
+.three-layout .main {
+  order: 2;
+  flex: 1 1 auto;
+}
+.three-layout .right {
+  order: 3;
+  flex: 0 0 auto;
+}
