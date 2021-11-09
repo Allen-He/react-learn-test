@@ -1,7 +1,23 @@
 import React, { Component } from 'react'
 import './index.css'
+import Types from "../../../utils/commonTypes";
+import PropTypes from "prop-types";
 
 export default class CheckboxGroup extends Component {
+
+  /** 属性默认值 */
+  static defaultProps = {
+    datas: [],
+    chooseDatas: []
+  }
+
+  /** 属性类型检查 */
+  static propTypes = {
+    datas: Types.FormCompDatas.isRequired,
+    chooseDatas: Types.FormCompChooseDatas.isRequired,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func
+  }
 
   changeHandle = (e) => {
     let newChooseDatas;
