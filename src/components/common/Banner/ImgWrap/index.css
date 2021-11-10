@@ -1,0 +1,22 @@
+.imgWrap {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.imgWrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.imgWrap li {
+  float: left;
+}
+.imgWrap li a,
+.imgWrap li a img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}

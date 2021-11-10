@@ -1,10 +1,10 @@
 import React from 'react'
-import FormTest from './components/FormTest'
+import BannerTest from './components/common/Banner/Test'
 
 export default function App() {
   return (
     <div>
-      <FormTest/>
+      <BannerTest/>
     </div>
   )
 }

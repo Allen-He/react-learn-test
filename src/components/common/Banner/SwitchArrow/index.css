@@ -1,0 +1,31 @@
+.switch-arrow {
+  width: 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .5);
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .3s;
+  display: none;
+}
+.switch-arrow:hover {
+  background-color: rgba(0, 0, 0, .7);
+}
+.banner-container:hover .switch-arrow {
+  display: block;
+}
+.switch-arrow.prev {
+  left: 0;
+  padding-right: 4px;
+  border-radius: 0 12px 12px 0;
+}
+.switch-arrow.next {
+  right: 0;
+  padding-left: 4px;
+  border-radius: 12px 0 0 12px;
+}

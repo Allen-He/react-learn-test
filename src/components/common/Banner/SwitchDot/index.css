@@ -1,0 +1,22 @@
+.switch-dot {
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  display: flex;
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+.switch-dot .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #999;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.switch-dot .dot.active {
+  background-color: #fff;
+}
