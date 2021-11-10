@@ -2,18 +2,12 @@ import React, { Component } from 'react'
 import './index.css'
 import Types from "../../../utils/commonTypes";
 import PropTypes from "prop-types";
+import widthDataGroup from '../HOC/withDataGroup';
 
-export default class RadioGroup extends Component {
-  
-  /** 属性默认值 */
-  static defaultProps = {
-    datas: [],
-    value: '',
-  }
-
+export class Radio extends Component {
   /** 属性类型检查 */
   static propTypes = {
-    datas: Types.FormCompDatas.isRequired,
+    info: Types.FormCompInfo.isRequired,
     value: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func
@@ -23,24 +17,17 @@ export default class RadioGroup extends Component {
     this.props.onChange && this.props.onChange(e.target.value, this.props.name, e);
   }
 
-  getRadioes() {
-    return this.props.datas.map(it => (
-      <label key={it.value}>
-        <input type="radio" name={this.props.name} value={it.value}
-          checked={this.props.value === it.value}
+  render() {
+    return (
+      <label>
+        <input type="radio" name={this.props.name} value={this.props.info.value}
+          checked={this.props.value === this.props.info.value}
           onChange={this.changeHandle}
         />
-        {it.text}
+        {this.props.info.text}
       </label>
-    ))
-  }
-
-  render() {
-    const radioes = this.getRadioes();
-    return (
-      <div>
-        {radioes}
-      </div>
     )
   }
 }
+
+export default widthDataGroup(Radio);
