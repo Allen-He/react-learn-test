@@ -1,10 +1,10 @@
 import React from 'react'
-import FormTest from './components/common/Form/Test'
+import StuInfoContainer from './components/StuInfoContainer'
 
 export default function App() {
   return (
     <div>
-      <FormTest/>
+      <StuInfoContainer/>
     </div>
   )
 }
