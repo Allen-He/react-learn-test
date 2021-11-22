@@ -1,0 +1,29 @@
+.container {
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* MyTransition's style */
+.exit {
+  transform-origin: center center;
+}
+.exit-active {
+  transform: scale(0);
+  opacity: 0;
+  transition: 1s;
+}
+
+.appear,
+.enter {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.appear-active,
+.enter-active {
+  transform: scale(1);
+  opacity: 1;
+  transition: 1s;
+}

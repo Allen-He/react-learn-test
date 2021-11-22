@@ -1,10 +1,10 @@
 import React from 'react'
-import StuInfoContainer from './components/StuInfoContainer'
+import TransTest from './components/trans/Test5'
 
 export default function App() {
   return (
     <div>
-      <StuInfoContainer/>
+      <TransTest/>
     </div>
   )
 }
