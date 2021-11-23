@@ -1,10 +1,10 @@
 import React from 'react'
-import TransTest from './components/trans/Test5'
+import FadeTransitionTest from './components/FadeTransition/Test'
 
 export default function App() {
   return (
     <div>
-      <TransTest/>
+      <FadeTransitionTest/>
     </div>
   )
 }
