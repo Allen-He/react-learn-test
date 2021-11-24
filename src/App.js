@@ -1,10 +1,15 @@
 import React from 'react'
-import FadeTransitionTest from './components/FadeTransition/Test'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Login from './pages/Login'
+import Admin from './pages/Admin'
 
 export default function App() {
   return (
-    <div>
-      <FadeTransitionTest/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/" component={Admin} />
+      </Switch>
+    </Router>
   )
 }

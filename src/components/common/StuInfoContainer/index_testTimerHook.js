@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useTimer from '../../myHooks/useTimer'
+import useTimer from '../../../myHooks/useTimer'
 
 function TimerComp() {
   // 使用自定义HOOK

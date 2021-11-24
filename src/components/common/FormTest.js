@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SelectMenu from './common/SelectMenu';
+import SelectMenu from './SelectMenu';
 
 export default class FormTest extends Component {
   state = {
