@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './index.css'
 
-export default class index extends Component {
+export default class Layout extends Component {
   static propTypes = {
     header: PropTypes.element,
     aside: PropTypes.element,
-    children: PropTypes.element
+    children: PropTypes.node, // 可以是任何能够生成React节点的内容
   }
 
   render() {

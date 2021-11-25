@@ -1,0 +1,13 @@
+.student-search-bar {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+.student-search-bar .item {
+  margin: 0 10px;
+}
+.student-search-bar .item label{
+  height: 45px;
+  display: flex;
+  align-items: center;
+}

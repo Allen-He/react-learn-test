@@ -1,0 +1,16 @@
+.students-table {
+  width: 100%;
+  margin: 10px 0 15px;
+}
+.students-table table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.students-table table tr{
+  height: 35px;
+}
+.students-table table tr td,
+.students-table table tr th {
+  border: 1px solid #ccc;
+}

@@ -29,7 +29,7 @@ export default function Pager(props) {
   }
 
   return (
-    <>
+    <div className="pager-box">
       <span 
         className={props.current === 1 ? "item disabled" : "item"}
         onClick={() => { toPage(1, props) }}
@@ -52,7 +52,7 @@ export default function Pager(props) {
       <div className="pageDesc">
         <span>{props.current}</span>/<span>{pageNums}</span>
       </div>
-    </>
+    </div>
   )
 }
 
