@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './index.css'
 
@@ -26,7 +27,7 @@ export default class StudentsTable extends Component {
         <td>{it.phone}</td>
         <td>{it.email}</td>
         <td>
-          <a href={`/students/${it.sNo}`}>详情</a>
+          <Link to={`/students/${it.sNo}`}>详情</Link>
         </td>
       </tr>
     ))
