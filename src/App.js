@@ -1,34 +1,39 @@
 import React from 'react'
-// import { BrowserRouter, Route, withRouter } from "react-router-dom"
-import { BrowserRouter, Route, withRouter } from "./react-router-dom"
+// import { BrowserRouter, Route, Link, NavLink } from "react-router-dom"
+import { BrowserRouter, Route, Link, NavLink } from "./react-router-dom"
 
-function Comp(props) {
+function Page1() {
   return <div>
-    {props.text}
-    <button onClick={() => {
-      props.history.push("/bbb")
-    }}>跳转到 bbb</button>
+    <h1>Page1</h1>
   </div>
 }
 
-const CompWithRouter = withRouter(Comp);
-
-function PageA() {
-  return <div>
-    <h1>Page aaa</h1>
-    <CompWithRouter text="abc" />
-  </div>
-}
-
-function PageB() {
-  return <h1>Page bbb</h1>
+function Page2() {
+  return <h1>Page2</h1>
 }
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Route path="/aaa" component={PageA} />
-      <Route path="/bbb" component={PageB} />
+      <ul>
+        <li>
+          <Link to={{
+            pathname: "/page1",
+            search: "?a=1&b=2"
+          }}>跳转到页面1</Link>
+        </li>
+        {/* <li>
+          <Link to="/page1">跳转到页面1</Link>
+        </li> */}
+        {/* <li>
+          <Link to="/page2">跳转到页面2</Link>
+        </li> */}
+        <li>
+          <NavLink activeClass="activeLink" to="/page2">跳转到页面2</NavLink>
+        </li>
+      </ul>
+      <Route path="/page1" component={Page1} />
+      <Route path="/page2" component={Page2} />
     </BrowserRouter>
   )
 }
