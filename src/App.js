@@ -1,32 +1,34 @@
 import React from 'react'
-// import { BrowserRouter, Route } from 'react-router-dom'
-import { BrowserRouter, Route } from './react-router-dom'
+// import { BrowserRouter, Route, withRouter } from "react-router-dom"
+import { BrowserRouter, Route, withRouter } from "./react-router-dom"
 
-function CompA(props) {
+function Comp(props) {
   return <div>
-    <h2>组件AAA</h2>
+    {props.text}
+    <button onClick={() => {
+      props.history.push("/bbb")
+    }}>跳转到 bbb</button>
   </div>
 }
-function CompB(props) {
+
+const CompWithRouter = withRouter(Comp);
+
+function PageA() {
   return <div>
-    <h2>组件BBB</h2>
+    <h1>Page aaa</h1>
+    <CompWithRouter text="abc" />
   </div>
 }
-function Change(props) {
-  return <div>
-    <button onClick={() => props.history.push('/aaa')}>去页面 AAA</button>
-    |
-    <button onClick={() => props.history.push('/bbb')}>去页面 BBB</button>
-  </div>
+
+function PageB() {
+  return <h1>Page bbb</h1>
 }
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Route path="/aaa" component={CompA} />
-      <Route path="/bbb" component={CompB} />
-      {/* <Route path="/" component={Change} /> */}
-      <Route component={Change} />
+      <Route path="/aaa" component={PageA} />
+      <Route path="/bbb" component={PageB} />
     </BrowserRouter>
   )
 }
