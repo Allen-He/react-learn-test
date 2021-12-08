@@ -4,9 +4,17 @@ import actionTypes from './utils/actionTypes'
 /**
  * 实现createStore功能
  * @param {function} reducer reducer
- * @param {any} defaultState 默认的状态值
+ * @param {any} defaultState 默认的状态值(可选)
+ * @param {any} enhancer 表示applyMiddleware返回的函数(可选)
  */
-export default function createStore(reducer, defaultState) {
+export default function createStore(reducer, defaultState, enhancer) {
+  if(typeof defaultState === 'function') { //第二个参数是应用中间件的函数返回值
+    enhancer = defaultState;
+    defaultState = undefined;
+  }
+  if(typeof enhancer === 'function') { //如果enhancer是函数类型，则进入applyMiddleware的处理逻辑
+    return enhancer(createStore)(reducer, defaultState);
+  }
 
   let currentReducer = reducer, //当前的reducer
       currentState = defaultState; //当前的state
