@@ -37,7 +37,7 @@ export const createSetIsLoadingAction = (bool) => ({
 
 /** 由于thunk的存在，允许返回的action是一个带有副作用的函数 */
 export function fetchAndSetUsers() {
-  return async function (dispatch) {
+  return async function (dispatch, getState, extra) {
     dispatch(createSetIsLoadingAction(true)); //正在加载数据
     const { findByPage: users } = await api.getAllStusByPagination(1, 15);
     dispatch(createSetUsersAction(users));
