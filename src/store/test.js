@@ -1,9 +1,13 @@
-import { createAddUserAction, fetchAndSetUsers } from './action/usersAction'
-import store from './index'
+import { change } from "./action/student/searchCondition"
+import { fetchStudents } from "./action/student/searchResult"
+import store from "./index"
 
-// store.dispatch(createAddUserAction({
-//   id: uuidv4(),
-//   name: 'ahahah',
-//   phone: 999999
-// }));
-store.dispatch(fetchAndSetUsers());
+
+store.dispatch(change({
+  key: "dsafdsf",
+  sex: 1,
+  page: 100,
+  limit: 10
+}));
+
+store.dispatch(fetchStudents());
