@@ -22,7 +22,7 @@ const api = {
       delete resp.searchList;
       return resp;
     } else {//忽略性别，查询全部
-      const resp = await this.getAllStusByPagination(page, limit);
+      const resp = await api.getAllStusByPagination(page, limit);
       resp.datas = resp.findByPage;
       delete resp.findByPage;
       return resp;

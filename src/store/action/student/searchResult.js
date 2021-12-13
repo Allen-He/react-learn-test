@@ -1,10 +1,10 @@
-import api from "../../../services"
-
 export const actionTypes = {
   /** 设置学生查询结果数组和总数 */
   setStudentsAndTotal: Symbol("setStudentsAndTotal"),
   /** 设置是否正在加载数据 */
-  setIsLoading: Symbol("setIsLoading")
+  setIsLoading: Symbol("setIsLoading"),
+  /** 用于获取学生数据的action（被saga监听） */
+  fetchStus: Symbol('fetchStus'),
 }
 
 /**
@@ -35,12 +35,12 @@ export function setIsLoading(isLoading) {
 }
 
 /**
- * 异步获取数据成功后再触发actionTypes.setStudentsAndTotal
- * @returns action函数（需配合redux-thunk使用）
+ * 得到一个获取学生数据的action（被saga监听）
+ * @param {*} isLoading 
+ * @returns 
  */
-export function fetchStudents() {
-  return async function (dispatch) {
-    const resp = await api.searchStudents();
-    dispatch(setStudentsAndTotal(resp.datas, resp.cont));
+export function fetchStus() {
+  return {
+    type: actionTypes.fetchStus,
   }
 }
