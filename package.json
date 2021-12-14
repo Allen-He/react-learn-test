@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "animate.css": "^4.1.1",
     "history": "^4.9.0",
+    "is-generator": "^1.0.3",
     "is-promise": "^4.0.0",
     "loadash": "^1.0.0",
     "path-to-regexp": "^6.2.0",
