@@ -1,4 +1,5 @@
 import { effectTypes } from "./effectHelper";
+import { runAllEffect } from "./effects/all";
 import { runCallEffect } from "./effects/call";
 import { runCancelEffect } from "./effects/cancel";
 import { runForkEffect } from "./effects/fork";
@@ -31,6 +32,9 @@ export default function runEffect(env, effect, next) {
       break;
     case effectTypes.CANCEL:
       runCancelEffect(env, effect, next);
+      break;
+    case effectTypes.ALL:
+      runAllEffect(env, effect, next);
       break;
     default:
       throw new TypeError('the value of "type" is not valid.');

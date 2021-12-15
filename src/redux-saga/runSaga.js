@@ -26,6 +26,9 @@ export default function runSaga(env, generatorFunc, ...args) {
  * @param {*} generator
  */
 export function excuteGenerator(env, generator) {
+  const cbObj = { //回调函数对象，需要将该对象的引用传递给返回值task对象，其会自动重置该对象的callback属性的值（用于实现“当其自身调用toPromise方法后，在该next方法中有权决定promise何时进入resolve状态）
+    callback: null
+  };
 
   next(); //开始迭代
   
@@ -41,12 +44,14 @@ export function excuteGenerator(env, generator) {
       result = generator.throw(err); //在generatorFunc的函数体中抛出错误
     }else if(isOver) {
       result = generator.return(); //直接结束整个迭代流程
+      cbObj.callback && cbObj.callback(); //使对应的promise进入resolved状态
     }else {
       result = generator.next(nextValue); //正常迭代
     }
 
     const { value, done } = result;
     if(done) { //如果迭代结束，则直接返回
+      cbObj.callback && cbObj.callback(); //使对应的promise进入resolved状态
       return;
     }
 
@@ -60,5 +65,5 @@ export function excuteGenerator(env, generator) {
     }
   }
 
-  return new Task(next);
+  return new Task(next, cbObj);
 }
