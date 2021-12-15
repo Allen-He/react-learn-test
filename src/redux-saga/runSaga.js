@@ -14,11 +14,21 @@ import Task from './Task'
 export default function runSaga(env, generatorFunc, ...args) {
   const generator = generatorFunc(...args);
   if(isGenerator(generator)) { //如果是生成器，则调用next方法进行迭代
-    next();
+    return excuteGenerator(env, generator);
   }else { // 如果不是，则当做普通函数调用
     console.log('generatorFunc是一个普通函数');
   }
+}
 
+/**
+ * 用于迭代一个生成器
+ * @param {*} env
+ * @param {*} generator
+ */
+export function excuteGenerator(env, generator) {
+
+  next(); //开始迭代
+  
   /**
    * 对generator进行迭代，直到结束为止
    * @param {*} nextValue 正常调用iterator.next时，传递的值
@@ -50,5 +60,5 @@ export default function runSaga(env, generatorFunc, ...args) {
     }
   }
 
-  return new Task();
+  return new Task(next);
 }

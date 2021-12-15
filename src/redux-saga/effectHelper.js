@@ -6,6 +6,9 @@ export const effectTypes = {
   APPLY: 'APPLY',
   PUT: 'PUT',
   SELECT: 'SELECT',
+  TAKE: 'TAKE',
+  FORK: 'FORK',
+  CANCEL: 'CANCEL'
 }
 
 /**

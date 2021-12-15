@@ -1,7 +1,10 @@
 import { effectTypes } from "./effectHelper";
 import { runCallEffect } from "./effects/call";
+import { runCancelEffect } from "./effects/cancel";
+import { runForkEffect } from "./effects/fork";
 import { runPutEffect } from "./effects/put";
 import { runSelectEffect } from "./effects/select";
+import { runTakeFunc } from "./effects/take";
 
 /**
  * 用于根据不同的effect描述对象的类型，进行不同的后续处理
@@ -19,6 +22,15 @@ export default function runEffect(env, effect, next) {
       break;
     case effectTypes.SELECT:
       runSelectEffect(env, effect, next);
+      break;
+    case effectTypes.TAKE:
+      runTakeFunc(env, effect, next);
+      break;
+    case effectTypes.FORK:
+      runForkEffect(env, effect, next);
+      break;
+    case effectTypes.CANCEL:
+      runCancelEffect(env, effect, next);
       break;
     default:
       throw new TypeError('the value of "type" is not valid.');
