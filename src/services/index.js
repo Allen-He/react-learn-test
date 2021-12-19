@@ -16,7 +16,8 @@ const api = {
    */
   async searchStudents({ page = 1, limit = 10, key = "", sex = -1 } = {}) {
     if (key) { //按关键词搜索
-      const resp = await fetch(`/api/student/searchStudent?appkey=${appkey}&page=${page}&size=${limit}&search=${key}&sex=${sex}`)
+      const path = '/student/searchStudent';
+      const resp = await fetch(`${url}${path}?appkey=${appkey}&page=${page}&size=${limit}&search=${key}&sex=${sex}`)
         .then(resp => resp.json()).then(resp => resp.data);
       resp.datas = resp.searchList;
       delete resp.searchList;

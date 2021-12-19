@@ -8,6 +8,8 @@ const sagaMid = createSagaMiddleware(); //创建saga中间件
 
 const store = createStore(reducer, applyMiddleware(sagaMid, logger));
 
+console.log(store.getState());
+
 sagaMid.run(rootSaga); //启动saga任务
 
 export default store;
