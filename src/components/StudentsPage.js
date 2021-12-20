@@ -1,16 +1,18 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { connect } from '../react-redux'
 import StudentSearchBar from './StudentSearchBar'
 import StudentTable from './StudentTable'
 import Pager from './common/Pager'
 import { change as changeCondition } from '../store/action/student/searchCondition'
 import { fetchStus } from '../store/action/student/searchResult'
+import store from '../store'
 
 // 链接 StudentSearchBar 组件
 let mapStateToProps = state => {
   const { key, sex } = state.students.condition;
   return {
-    defaultValue: { key, sex }
+    keyword: key,
+    sex
   }
 }
 let mapDispatchToProps = dispatch => {
@@ -55,6 +57,10 @@ const PagerContainer = connect(mapStateToProps, mapDispatchToProps)(Pager);
 
 
 export default function StudentsPage() {
+  useEffect(() => {
+    store.dispatch(fetchStus());
+  }, []); 
+
   return (
     <>
       <StudentSearchBarContainer/> 
