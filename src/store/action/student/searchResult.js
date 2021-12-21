@@ -1,10 +1,10 @@
 export const actionTypes = {
   /** 设置学生查询结果数组和总数 */
-  setStudentsAndTotal: Symbol("setStudentsAndTotal"),
+  setStudentsAndTotal: 'SET_STUDENTS_AND_TOTAL',
   /** 设置是否正在加载数据 */
-  setIsLoading: Symbol("setIsLoading"),
+  setIsLoading: 'SET_IS_LOADING',
   /** 用于获取学生数据的action（被saga监听） */
-  fetchStus: Symbol('fetchStus'),
+  fetchStus: 'FETCH_STUS',
 }
 
 /**

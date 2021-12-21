@@ -1,6 +1,6 @@
 export const actionTypes = {
   /** 对学生查询条件改变的action类型 */
-  change: Symbol('change')
+  change: 'CHANGE'
 }
 
 /**
