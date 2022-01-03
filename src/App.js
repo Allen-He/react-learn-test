@@ -1,15 +1,21 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Login from './pages/Login'
-import Admin from './pages/Admin'
+import { Provider } from './react-redux'
+import store from './store'
+// import Counter from './components/Counter'
+import StudentsPage from './components/StudentsPage'
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Admin} />
-      </Switch>
-    </Router>
+    // <Provider store={store}>
+    //   <Counter />
+    // </Provider>
+
+    // <div>
+    //   <Counter />
+    // </div>
+    
+    <Provider store={store}>
+      <StudentsPage/>
+    </Provider>
   )
 }
