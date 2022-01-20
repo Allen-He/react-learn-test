@@ -1,12 +1,13 @@
 import { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
+/** 阻止跳转（公共组件-视情况添加“阻塞”） */
 class Prompt extends Component {
   static defultProps = {
     when: false, //是否添加阻塞
     message: '', //阻塞的信息
   }
-
+  
   componentDidMount() {
     this.handleBlock();
   }
