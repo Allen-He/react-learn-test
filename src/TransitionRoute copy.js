@@ -4,9 +4,9 @@ import { CSSTransition } from "react-transition-group"
 import "animate.css"
 
 export default function TransitionRoute(props) {
-  const { component: Comp, ...rest } = props;
+  const { component: Component, ...rest } = props;
   return (
-    <Route {...rest}>
+    <Route {...rest} >
       {({ match }) => { //若匹配到当前路由，则match为一个对象；反之为null
         return <CSSTransition
           in={match ? true : false}
@@ -18,7 +18,7 @@ export default function TransitionRoute(props) {
           mountOnEnter={true}
           unmountOnExit={true}
         >
-          <Comp/>
+          <Component />
         </CSSTransition>
       }}
     </Route>
